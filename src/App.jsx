@@ -35,7 +35,7 @@ function App() {
                         <ol>If you click on a card that you already clicked, the game will reset.</ol>
                         <ol>Try to get as many points as you can.</ol>
                     </ul>
-                    <button className="menu-btn" onClick={exitHelp}>Back</button>
+                    <button className="game-button" onClick={exitHelp}>Back</button>
                 </div>
             )}
             {showMenu && (
