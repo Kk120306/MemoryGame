@@ -2,6 +2,7 @@ import './App.css'
 import { useState } from 'react';
 import Game from './components/Game';
 import logo from './assets/logo.png';
+import './styles/Game.css';
 
 function App() {
 
@@ -34,18 +35,20 @@ function App() {
                         <ol>If you click on a card that you already clicked, the game will reset.</ol>
                         <ol>Try to get as many points as you can.</ol>
                     </ul>
-                    <button onClick={exitHelp}>Back</button>
+                    <button className="menu-btn" onClick={exitHelp}>Back</button>
                 </div>
             )}
             {showMenu && (
                 <div className="Menu">
                     <img className="logo" src={logo} alt="pokemon-logo"></img>
                     <h1>Memory Card Game</h1>
-                    <button onClick={startGameHandler}>Start Game</button>
-                    <button onClick={helpHandler}>How to Play</button>
+                    <div className="btn-container">
+                        <button className="game-button" onClick={startGameHandler}>Start Game</button>
+                        <button className="game-button" onClick={helpHandler}>How to Play</button>
+                    </div>
                 </div>
+
             )}
-            {/* Add the conditional statement for this */}
             {showGame &&
                 <Game setShowMenu={setShowMenu} setShowGame={setShowGame} />}
         </div>

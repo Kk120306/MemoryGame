@@ -1,6 +1,103 @@
+@font-face {
+    font-family: 'MyFont';
+    src: url('./assets/fonts/PressStart2P-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
 
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.App {
+    height: 100vh;
+    background-image: url('/assets/tablet-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: 'MyFont', sans-serif;
+  }
+
+.btn-container {
+    display: flex;
+    gap: 20px;
+}
+
+.Menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+}
 
 h1 {
-    font-family: 'MyFont', sans-serif;
-    font-size: 2rem;
+    color: white;
+    font-size: 15px;
+    padding: 10px;
 }
+
+.logo {
+    width: 200px;
+    height: auto;
+}
+
+.HowModule {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+}
+
+ol {
+    padding: 10px;
+}
+
+
+
+@media (min-width: 768px) {
+    .logo {
+        width: 400px;
+    }
+    .menu-btn {
+        font-size: 14px;
+    }
+    h1 {
+        font-size: 20px;
+    }
+}
+
+
+@media (min-width: 1028px) {
+    .logo {
+        width: 550px;
+    }
+    .App {
+        background-image: url('/assets/poke-background.jpg');
+    }
+    .menu-btn {
+        font-size: 20px;
+    }
+    h1 {
+        font-size: 30px;
+    }
+    ul {
+        font-size: 15px;
+    }
+}
+
+

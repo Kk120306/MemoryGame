@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-
 function Game({ setShowMenu, setShowGame }) {
     const [bestScore, setBestScore] = useState(0);
     const [score, setScore] = useState(0);
@@ -30,7 +29,7 @@ function Game({ setShowMenu, setShowGame }) {
 
 
     const generateRandomPokemons = () => {
-        fetch('https://pokeapi.co/api/v2/pokemon?limit=10')
+        fetch('https://pokeapi.co/api/v2/pokemon?limit=12')
             .then(response => response.json())
             .then(data => {
                 Promise.all(
@@ -78,33 +77,37 @@ function Game({ setShowMenu, setShowGame }) {
         <div className="PokemonCards">
             {!gameOver && !gameWon && (
                 <div className="Game">
-                    <button onClick={showMenuHandler}>Menu</button>
-                    <button onClick={generateRandomPokemons}>Generate</button>
-                    <button onClick={resetModule}>Reset</button>
 
-
-                    <h2>Score: {score}</h2>
-                    <h2>Best Score: {bestScore}</h2>
-
-                    {cards.map(pokemon => (
-                        <div key={pokemon.id} onClick={() => verifyClick(pokemon)}>
-                            <h3>{pokemon.name}</h3>
-                            <img
-                                src={pokemon.sprites.front_default}
-                                alt={pokemon.name}
-                                width={100}
-                                height={100}
-                            />
-                        </div>
-                    ))}
+                    <div className="btn-container">
+                        <button className="game-button" onClick={showMenuHandler}>Menu</button>
+                        <button className="game-button" onClick={generateRandomPokemons}>Generate</button>
+                        <button className="game-button" onClick={resetModule}>Reset</button>
                     </div>
-                )}
+
+                    <div className="score-container">
+                        <h2>Score: {score}</h2>
+                        <h2>Best Score: {bestScore}</h2>
+                    </div>
+
+                    <div className="card-container">
+                        {cards.map(pokemon => (
+                            <div className="card" key={pokemon.id} onClick={() => verifyClick(pokemon)}>
+                                <h3>{pokemon.name}</h3>
+                                <img
+                                    src={pokemon.sprites.front_default}
+                                    alt={pokemon.name}
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
 
             {gameOver && (
                 <div className="GameOver">
                     <h2>Game Over</h2>
                     <p>Best score: {bestScore}</p>
-                    <button onClick={playAgain}>Play Again</button>
+                    <button className="game-button" onClick={playAgain}>Play Again</button>
                 </div>
             )}
 
@@ -112,7 +115,7 @@ function Game({ setShowMenu, setShowGame }) {
                 <div className="GameWon">
                     <h2>You won!</h2>
                     <p>Your score: {score}</p>
-                    <button onClick={resetModule}>Play Again</button>
+                    <button className="game-button" onClick={resetModule}>Play Again</button>
                 </div>
             )}
 
